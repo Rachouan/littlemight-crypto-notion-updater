@@ -27,6 +27,7 @@ async function getDatabaseEntries() {
         console.log(el["properties"]["Price/Coin"]);
     }
     console.log(database)
+    getCryptoPrices();
     
   } catch (error) {
     console.log(error.message);
@@ -79,7 +80,3 @@ async function updateNotionDatabase(){
 }
 
 getDatabaseEntries();
-const job = schedule.scheduleJob('* */1 * * *', function(){
-  console.log('The answer to life, the universe, and everything!');
-  getCryptoPrices();
-});
