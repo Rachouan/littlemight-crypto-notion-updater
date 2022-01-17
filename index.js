@@ -1,6 +1,5 @@
 require("dotenv/config");
 const schedule = require('node-schedule');
-const http = require('http');
 const { Client } = require("@notionhq/client");
 const axios = require('axios');
 const notion = new Client({ auth: process.env.NOTION_KEY });
@@ -80,12 +79,7 @@ async function updateNotionDatabase(){
 }
 
 getDatabaseEntries();
-getCryptoPrices();
 const job = schedule.scheduleJob('* */1 * * *', function(){
   console.log('The answer to life, the universe, and everything!');
   getCryptoPrices();
 });
-
-http.createServer(function (req, res) {
-    res.send('Hello World');
-}).listen(8080);
